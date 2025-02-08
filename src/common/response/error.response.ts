@@ -1,6 +1,8 @@
+import { StatusCodes } from "../constants/status-codes";
+
 export function ResponseError(
     error: any,
-    statusCode: number = 500,
+    statusCode: number = StatusCodes.INTERNAL_SERVER_ERROR,
     message: string = 'Internal Server Error'
   ) {
     return {

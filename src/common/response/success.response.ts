@@ -1,9 +1,10 @@
+import { StatusCodes } from '../constants/status-codes';
 import { MetaDataType } from '../interface/meta-data';
 
 export function ResponseSuccess(
   data: any = null,
   message: string = 'Success',
-  statusCode: number = 200,
+  statusCode: number = StatusCodes.SUCCESS,
 ) {
   return {
     statusCode,
@@ -15,7 +16,7 @@ export function ResponseSuccess(
 export function ResponseWithPagination(
   data: any,
   meta: MetaDataType,
-  statusCode: number = 200,
+  statusCode: number = StatusCodes.SUCCESS,
   message: string = 'Success',
 ) {
   return {
