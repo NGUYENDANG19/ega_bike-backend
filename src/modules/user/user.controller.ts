@@ -1,22 +1,34 @@
-import { Controller, Get } from '@nestjs/common';
-import { UserService } from './user.service';
-import { UserEntity } from 'src/entities/user.entities';
-import { StatusCodes } from 'src/common/constants/status-codes';
+import { Controller, Get, Post, Body, Param, Patch, Delete } from "@nestjs/common";
+import { UserService } from "./user.service";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UpdateUserDto } from "./dto/update-user.dto";
 
-
-@Controller('user')
+@Controller("users")
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-
-  // API lấy tất cả user
   @Get()
-  async getAllUsers() {
-      const users = await this.userService.getAllUsers();
-      return {
-          statusCode: StatusCodes.SUCCESS,
-          message: 'All users retrieved successfully',
-          data: users,
-      };
+  findAll() {
+    return this.userService.findAll();
+  }
+
+  @Get(":id")
+  findOne(@Param("id") id: number) {
+    return this.userService.findOne(id);
+  }
+
+  @Post()
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.userService.create(createUserDto);
+  }
+
+  @Patch(":id")
+  update(@Param("id") id: number, @Body() updateUserDto: UpdateUserDto) {
+    return this.userService.update(id, updateUserDto);
+  }
+
+  @Delete(":id")
+  remove(@Param("id") id: number) {
+    return this.userService.remove(id);
   }
 }

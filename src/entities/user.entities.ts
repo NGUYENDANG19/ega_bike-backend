@@ -1,27 +1,27 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, BaseEntity } from 'typeorm';
-import { RoleEntity } from './role.entities';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from "typeorm";
+import { RoleEntity } from "./role.entities";
 
 @Entity('users')
-export class UserEntity extends BaseEntity {
+export class User {
   @PrimaryGeneratedColumn()
   user_id: number;
 
   @Column({ length: 255 })
   name: string;
 
-  @Column({ unique: true, length: 255 })
+  @Column({ unique: true })
   email: string;
 
   @Column()
   password: string;
 
-  @Column({ length: 15, nullable: true })
+  @Column()
   phone: string;
 
-  @Column({ type: 'text', nullable: true })
+  @Column()
   address: string;
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ type: "timestamp" })
   created_at: Date;
 
   @ManyToOne(() => RoleEntity, (role) => role.users)
