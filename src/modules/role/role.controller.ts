@@ -8,8 +8,8 @@ export class RoleController {
   constructor(private readonly roleService: RoleService) {}
 
   @Get()
-  findAll() {
-    return this.roleService.findAll();
+  async findAll() {
+    return await this.roleService.findAll();
   }
 
   @Get(':id')

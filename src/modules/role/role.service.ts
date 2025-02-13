@@ -16,13 +16,17 @@ export class RoleService {
   ) {}
 
   // 📌 Lấy danh sách Role
-  async findAll(): Promise<RoleEntity[]> {
-    return this.roleRepository.find();
+  async findAll(): Promise<{ data: RoleEntity[]; message: string }> {
+    const roles = await this.roleRepository.find();
+    return {
+      data: roles,
+      message: 'Lấy dữ liệu thành công',
+    };
   }
 
   // 📌 Tìm Role theo ID
   async findOne(id: number): Promise<RoleEntity> {
-    const role = await this.roleRepository.findOne({ where: { role_id: id } });
+    const role = await this.roleRepository.findOneBy({ role_id: id });
     if (!role) throw new NotFoundException(`Role với ID ${id} không tồn tại`);
     return role;
   }

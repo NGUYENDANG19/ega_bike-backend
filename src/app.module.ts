@@ -2,9 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './modules/user/user.module';
-import { User } from './entities/user.entities';
 import { RoleEntity } from './entities/role.entities';
 import { BrandsModule } from './modules/brands/brands.module';
+import { BrandEntity } from './entities/brand.entity';
+import { RoleModule } from './modules/role/role.module';
+import { OrderEntity } from './entities/orders.entities';
+import { UserEntities } from './entities/user.entities';
 
 @Module({
   imports: [
@@ -16,9 +19,10 @@ import { BrandsModule } from './modules/brands/brands.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [User, RoleEntity],
+      entities: [UserEntities, RoleEntity, BrandEntity, OrderEntity],
     }),
     UserModule,
+    RoleModule,
     BrandsModule,
   ],
 })

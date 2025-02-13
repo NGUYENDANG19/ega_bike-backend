@@ -3,7 +3,7 @@ import { RoleEntity } from "./role.entities";
 import { OrderEntity } from "./orders.entities";
 
 @Entity('users')
-export class User {
+export class UserEntities {
   @PrimaryGeneratedColumn()
   user_id: number;
 

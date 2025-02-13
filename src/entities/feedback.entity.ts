@@ -1,5 +1,5 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entities";
+import { UserEntities } from "./user.entities";
 
 @Entity('feedbacks')
 export class FeedbackEntity extends BaseEntity {
@@ -18,8 +18,8 @@ export class FeedbackEntity extends BaseEntity {
     @Column({ type: 'tinyint', default: 0 })
     is_resolved: boolean;
 
-    @ManyToOne(() => User, (user) => user.user_id)
-    user: User;
+    @ManyToOne(() => UserEntities, (user) => user.user_id)
+    user: UserEntities;
 
     // @ManyToOne(() => ProductEntity, (product) => product.product_id)
     // product: ProductEntity;

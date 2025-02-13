@@ -1,8 +1,8 @@
 import { OrderStatus } from "src/common/enums/types";
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from "typeorm";
-import { User } from "./user.entities";
+import { UserEntities } from "./user.entities";
 
-Entity("orders")
+@Entity("orders")
 export class OrderEntity {
 
     @PrimaryGeneratedColumn()
@@ -29,6 +29,6 @@ export class OrderEntity {
     @Column()
     discount_id: number;
     
-  @ManyToOne(() => User, (user) => user.orders, { eager: true })
-    user: User;
+  @ManyToOne(() => UserEntities, (user) => user.orders, { eager: true })
+    user: UserEntities;
 }
