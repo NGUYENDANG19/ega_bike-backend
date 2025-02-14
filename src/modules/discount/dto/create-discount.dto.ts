@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsNumber, IsOptional } from "class-validator";
-import { DiscountType } from "src/utils/types";
+import { DiscountType } from "src/common/enums/types";
 
 export class CreateDiscountDto {
     @IsNotEmpty()

@@ -8,7 +8,7 @@ export class FeedbackEntity extends BaseEntity {
     @PrimaryGeneratedColumn({ type: 'int' })
     feedback_id: number;
 
-    @Column({ type: 'int', default: 0 })
+    @Column({ type: 'int', default: 1 })
     rating: number;
 
     @Column({ type: 'text' })
@@ -23,9 +23,9 @@ export class FeedbackEntity extends BaseEntity {
     @ManyToOne(() => UserEntity, (user) => user.user_id, { eager: true })
     user: UserEntity;
 
-    @ManyToOne(() => ProductEntity, (product) => product.product_id, { eager: true })
+    @ManyToOne(() => ProductEntity, (product) => product.product_id, { eager: true, nullable: true })
     product: ProductEntity;
 
-    @ManyToOne(() => OrderEntity, (order) => order.order_id, { eager: true })
+    @ManyToOne(() => OrderEntity, (order) => order.order_id, { eager: true, nullable: true })
     order: OrderEntity;
 }

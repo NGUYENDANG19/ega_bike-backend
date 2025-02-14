@@ -9,4 +9,4 @@ import { BrandEntity } from 'src/entities/brand.entity';
   controllers: [BrandController],
   providers: [BrandService],
 })
-export class BrandsModule { }
+export class BrandModule { }
