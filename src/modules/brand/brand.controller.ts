@@ -14,7 +14,7 @@ export class BrandController {
 
   @Get()
   findAll() {
-    return this.findAll()
+    return this.brandsService.findAll()
   }
 
   @Get(':id')

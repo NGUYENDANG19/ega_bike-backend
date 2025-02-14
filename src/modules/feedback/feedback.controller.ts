@@ -5,7 +5,7 @@ import { UpdateFeedbackDto } from './dto/update-feedback.dto';
 
 @Controller('feedback')
 export class FeedbackController {
-  constructor(private readonly feedbackService: FeedbackService) {}
+  constructor(private readonly feedbackService: FeedbackService) { }
 
   @Post()
   create(@Body() createFeedbackDto: CreateFeedbackDto) {

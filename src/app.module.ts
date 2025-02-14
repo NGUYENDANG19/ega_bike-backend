@@ -16,6 +16,12 @@ import { OrderItemEntity } from './entities/order_items.entities';
 import { PaymentEntity } from './entities/payments.entities';
 import { ProductImagesEntity } from './entities/product_images.entities';
 import { ProductEntity } from './entities/products.entities';
+import { BrandModule } from './modules/brand/brand.module';
+import { CartModule } from './modules/cart/cart.module';
+import { CartItemModule } from './modules/cart-item/cart-item.module';
+import { CategoryModule } from './modules/category/category.module';
+import { DiscountModule } from './modules/discount/discount.module';
+import { FeedbackModule } from './modules/feedback/feedback.module';
 
 @Module({
   imports: [
@@ -44,6 +50,12 @@ import { ProductEntity } from './entities/products.entities';
       ],
       synchronize: true,
     }),
+    BrandModule,
+    CartModule,
+    CartItemModule,
+    CategoryModule,
+    DiscountModule,
+    FeedbackModule,
     UserModule,
     RoleModule,
   ],
