@@ -1,4 +1,4 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreateAuthDto } from './create-role.dto';
+import { CreateRoleDto } from './create-role.dto';
 
-export class UpdateAuthDto extends PartialType(CreateAuthDto) {}
+export class UpdateRoleDto extends PartialType(CreateRoleDto) {}

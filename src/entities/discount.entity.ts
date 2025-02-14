@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { DiscountType } from '../utils/types';
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { DiscountType } from '../common/enums/types';
+import { OrderEntity } from "./orders.entities";
 
 @Entity('discounts')
 export class DiscountEntity extends BaseEntity {
@@ -30,4 +31,7 @@ export class DiscountEntity extends BaseEntity {
 
     @Column({ type: 'tinyint', default: 1 })
     is_active: boolean;
+
+    @OneToMany(() => OrderEntity, (order) => order.order_id)
+    order: OrderEntity;
 }

@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { ProductEntity } from "./products.entities";
 
 @Entity('brands')
 export class BrandEntity extends BaseEntity {
@@ -16,4 +17,7 @@ export class BrandEntity extends BaseEntity {
 
     @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
+
+    @OneToMany(() => ProductEntity, (product) => product.product_id)
+    product: ProductEntity;
 }
