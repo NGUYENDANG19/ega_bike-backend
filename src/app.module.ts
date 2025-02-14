@@ -4,7 +4,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './modules/user/user.module';
 import { User } from './entities/user.entities';
 import { RoleEntity } from './entities/role.entities';
-import { BrandsModule } from './modules/brands/brands.module';
+import { BrandsModule } from './modules/brand/brand.module';
+import { CartItemModule } from './modules/cart-item/cart-item.module';
+import { CartModule } from './modules/cart/cart.module';
+import { CategoryModule } from './modules/category/category.module';
+import { DiscountModule } from './modules/discount/discount.module';
+import { FeedbackModule } from './modules/feedback/feedback.module';
 
 @Module({
   imports: [
@@ -20,6 +25,11 @@ import { BrandsModule } from './modules/brands/brands.module';
     }),
     UserModule,
     BrandsModule,
+    CartItemModule,
+    CartModule,
+    CategoryModule,
+    DiscountModule,
+    FeedbackModule,
   ],
 })
 export class AppModule {
