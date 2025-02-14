@@ -1,13 +1,13 @@
-import { type } from "os";
-import { DiscountType, PaymentMethod, Status } from "src/common/enums/types";
+import { PaymentMethod, PaymentStatus } from "src/common/enums/types";
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  ManyToOne,
   CreateDateColumn,
-  OneToMany,
+  OneToOne,
+  JoinColumn,
 } from "typeorm";
+import { OrderEntity } from "./orders.entities";
 
 @Entity("payments")
 export class PaymentEntity {
@@ -17,8 +17,8 @@ export class PaymentEntity {
   @CreateDateColumn({ type: "timestamp" })
   payment_date: Date;
 
-  @Column()
-  amount: boolean;
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  amount: number;
 
   @Column({
     type: "enum",
@@ -29,11 +29,12 @@ export class PaymentEntity {
 
   @Column({
     type: "enum",
-    enum: Status,
-    default: Status.PENDING,
+    enum: PaymentStatus,
+    default: PaymentStatus.PENDING,
   })
-  status: Status;
+  status: PaymentStatus;
 
-  @Column()
-  order_id: number;
+  @OneToOne(() => OrderEntity, (order) => order.order_id, { eager: true })
+  @JoinColumn() // chỉ định khóa ngoại nằm ở bảng này
+  order: OrderEntity;
 }

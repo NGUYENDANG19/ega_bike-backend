@@ -4,51 +4,51 @@ import { Repository } from "typeorm";
 import * as bcrypt from "bcrypt";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
-import { UserEntities } from "src/entities/user.entities";
+import { UserEntity } from "src/entities/user.entities";
 
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(UserEntities)
-    private userRepository: Repository<UserEntities>
-  ) {}
+    @InjectRepository(UserEntity)
+    private userRepository: Repository<UserEntity>
+  ) { }
 
   // 📌 Lấy danh sách user
-  async findAll(): Promise<UserEntities[]> {
+  async findAll(): Promise<UserEntity[]> {
     const users = await this.userRepository.find();
     console.log("Users in DB:", users);
     return users;
   }
-  
+
   // 📌 Tìm user theo ID
-  async findOne(id: number): Promise<UserEntities> {
+  async findOne(id: number): Promise<UserEntity> {
     const user = await this.userRepository.findOne({ where: { user_id: id }, relations: ["role"] });
     if (!user) throw new NotFoundException(`User với ID ${id} không tồn tại`);
     return user;
   }
 
   // 📌 Tạo user mới
-  async create(createUserDto: CreateUserDto): Promise<UserEntities> {
+  async create(createUserDto: CreateUserDto): Promise<UserEntity> {
     const existingUser = await this.userRepository.findOne({ where: { email: createUserDto.email } });
     if (existingUser) {
-        throw new ConflictException("Email đã tồn tại!");
+      throw new ConflictException("Email đã tồn tại!");
     }
 
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
-    
+
     // Truyền role_id trực tiếp vào entity
     const newUser = this.userRepository.create({
-        ...createUserDto,
-        password: hashedPassword,
-        role: { role_id: createUserDto.role_id }, // 👈 Thêm role theo đúng quan hệ
+      ...createUserDto,
+      password: hashedPassword,
+      role: { role_id: createUserDto.role_id }, // 👈 Thêm role theo đúng quan hệ
     });
 
     return this.userRepository.save(newUser);
-}
+  }
 
-  // 📌 Cập nhật UserEntities
-  async update(id: number, updateUserDto: UpdateUserDto): Promise<UserEntities> {
+  // 📌 Cập nhật UserEntity
+  async update(id: number, updateUserDto: UpdateUserDto): Promise<UserEntity> {
     const user = await this.findOne(id);
     if (updateUserDto.password) {
       updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10);
@@ -61,6 +61,6 @@ export class UserService {
   async remove(id: number): Promise<void> {
     const user = await this.findOne(id);
     await this.userRepository.remove(user);
-    
+
   }
 }

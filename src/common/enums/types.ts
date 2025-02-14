@@ -7,10 +7,10 @@ export enum PaymentMethod {
   CREDIT_CARD = "credit_card",
   PAYPAL = "paypal",
   CASH_ON_DELIVERY = "cash_on_delivery",
-  CASH = "CASH",
+  CASH = "cash",
 }
 
-export enum Status {
+export enum PaymentStatus {
   PENDING = "pending",
   COMPLETED = "completed",
   FAILED = "failed",
