@@ -18,6 +18,6 @@ export class BrandEntity extends BaseEntity {
     @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
-    @OneToMany(() => ProductEntity, (product) => product.product_id)
-    product: ProductEntity;
+    @OneToMany(() => ProductEntity, (product) => product.brand)
+    products: ProductEntity[];
 }

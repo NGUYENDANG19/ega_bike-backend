@@ -13,9 +13,9 @@ export class OrderItemEntity {
     @Column({ type: 'decimal', precision: 10, scale: 2 })
     price: number;
 
-    @ManyToOne(() => ProductEntity, (product) => product.product_id, { eager: true })
+    @ManyToOne(() => ProductEntity, (product) => product.orderItems, { eager: true })
     product: ProductEntity;
 
-    @ManyToOne(() => OrderEntity, (order) => order.order_id, { eager: true })
+    @ManyToOne(() => OrderEntity, (order) => order.orderItems, { eager: true })
     order: OrderEntity;
 }

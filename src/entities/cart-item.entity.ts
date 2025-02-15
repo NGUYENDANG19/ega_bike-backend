@@ -11,11 +11,11 @@ export class CartItemEntity extends BaseEntity {
     quantity: number;
 
     @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
-    create_at: Date; 
+    create_at: Date;
 
-    @ManyToOne(() => CartEntity, (cart) => cart.cart_id, { eager: true })
+    @ManyToOne(() => CartEntity, (cart) => cart.cartItems, { eager: true })
     cart: CartEntity;
 
-    @ManyToOne(() => ProductEntity, (product) => product.product_id, { eager: true })
+    @ManyToOne(() => ProductEntity, (product) => product.cartItems, { eager: true })
     product: ProductEntity;
 }

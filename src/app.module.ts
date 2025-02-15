@@ -22,6 +22,8 @@ import { CartItemModule } from './modules/cart-item/cart-item.module';
 import { CategoryModule } from './modules/category/category.module';
 import { DiscountModule } from './modules/discount/discount.module';
 import { FeedbackModule } from './modules/feedback/feedback.module';
+import { AuthModule } from './auth/auth.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -58,6 +60,8 @@ import { FeedbackModule } from './modules/feedback/feedback.module';
     FeedbackModule,
     UserModule,
     RoleModule,
+    AuthModule,
+    UploadModule,
   ],
 })
 export class AppModule {

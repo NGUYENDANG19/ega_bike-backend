@@ -27,18 +27,18 @@ export class OrderEntity {
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   total_amount: number;
 
-  @ManyToOne(() => DiscountEntity, discount => discount.discount_id, { eager: true })
+  @ManyToOne(() => DiscountEntity, discount => discount.orders, { eager: true })
   discount: DiscountEntity;
 
   @ManyToOne(() => UserEntity, (user) => user.orders, { eager: true })
   user: UserEntity;
 
-  @OneToMany(() => FeedbackEntity, (feedback) => feedback.feedback_id)
-  feedback: FeedbackEntity;
+  @OneToMany(() => FeedbackEntity, (feedback) => feedback.order)
+  feedbacks: FeedbackEntity[];
 
-  @OneToOne(() => PaymentEntity, (payment) => payment.payment_id)
+  @OneToOne(() => PaymentEntity, (payment) => payment.order)
   payment: PaymentEntity;
 
-  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.order_item_id)
-  orderItems: OrderItemEntity;
+  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.order)
+  orderItems: OrderItemEntity[];
 }

@@ -10,5 +10,5 @@ export class ProductImagesEntity {
   url: string;
 
   @ManyToOne(() => ProductEntity, (product) => product.product_images, { eager: true })
-  products: ProductEntity[];
+  product: ProductEntity;
 }

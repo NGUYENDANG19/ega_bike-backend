@@ -16,7 +16,18 @@ export class CategoryService {
   }
 
   findAll() {
-    return this.categoryRepository.find()
+    return this.categoryRepository
+      .createQueryBuilder('categories')
+      .leftJoin('categories.products', 'products')
+      .select([
+        'categories.category_id AS category_id',
+        'categories.name AS name',
+        'categories.description AS description',
+        'categories.image AS image',
+      ])
+      .addSelect('COUNT(products.product_id)', 'productCount')
+      .groupBy('categories.category_id')
+      .getRawMany()
   }
 
   findOne(id: number) {

@@ -28,6 +28,12 @@ export class UserService {
     return user;
   }
 
+  async findOneByEmail(email: string): Promise<UserEntity> {
+    const user = await this.userRepository.findOne({ where: { email } });
+    if (!user) throw new NotFoundException(`User với ID ${email} không tồn tại`);
+    return user;
+  }
+
   // 📌 Tạo user mới
   async create(createUserDto: CreateUserDto): Promise<UserEntity> {
     const existingUser = await this.userRepository.findOne({ where: { email: createUserDto.email } });
