@@ -20,12 +20,12 @@ export class FeedbackEntity extends BaseEntity {
     @Column({ type: 'tinyint', default: 0 })
     is_resolved: boolean;
 
-    @ManyToOne(() => UserEntity, (user) => user.user_id, { eager: true })
+    @ManyToOne(() => UserEntity, (user) => user.feedbacks, { eager: true })
     user: UserEntity;
 
-    @ManyToOne(() => ProductEntity, (product) => product.product_id, { eager: true, nullable: true })
+    @ManyToOne(() => ProductEntity, (product) => product.feedbacks, { eager: true, nullable: true })
     product: ProductEntity;
 
-    @ManyToOne(() => OrderEntity, (order) => order.order_id, { eager: true, nullable: true })
+    @ManyToOne(() => OrderEntity, (order) => order.feedbacks, { eager: true, nullable: true })
     order: OrderEntity;
 }

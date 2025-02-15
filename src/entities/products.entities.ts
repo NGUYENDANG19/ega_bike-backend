@@ -37,29 +37,23 @@ export class ProductEntity {
   created_at: Date;
 
   @Column()
-  category_id: number;
-
-  @Column()
-  brand_id: number;
-
-  @Column()
   sku: string;
 
-  @OneToMany(() => ProductImagesEntity, (product_images) => product_images.products)
+  @OneToMany(() => ProductImagesEntity, (product_images) => product_images.product)
   product_images: ProductImagesEntity[];
 
-  @OneToMany(() => CartItemEntity, (cartItem) => cartItem.cart_item_id)
-  cartItems: CartItemEntity;
+  @OneToMany(() => CartItemEntity, (cartItem) => cartItem.product)
+  cartItems: CartItemEntity[];
 
-  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.order_item_id)
-  orderItem: OrderItemEntity;
+  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.product)
+  orderItems: OrderItemEntity[];
 
-  @OneToMany(() => FeedbackEntity, (feedback) => feedback.feedback_id)
-  feedback: FeedbackEntity;
+  @OneToMany(() => FeedbackEntity, (feedback) => feedback.product)
+  feedbacks: FeedbackEntity[];
 
-  @ManyToOne(() => CategoryEntity, (category) => category.category_id, { eager: true })
+  @ManyToOne(() => CategoryEntity, (category) => category.products, { eager: true })
   category: CategoryEntity;
 
-  @ManyToOne(() => BrandEntity, (brand) => brand.brand_id, { eager: true })
+  @ManyToOne(() => BrandEntity, (brand) => brand.products, { eager: true })
   brand: BrandEntity;
 }

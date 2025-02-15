@@ -22,3 +22,9 @@ export enum OrderStatus {
   SHIPPED = "shipped",
   DELIVERED = "delivered",
 }
+
+export enum UPLOAD_TYPES {
+  CATEGORY_IMAGE = 'category_images',
+  PRODUCT_IMAGE = 'product_images',
+  BRAND_LOGO = 'brand_logos',
+} 

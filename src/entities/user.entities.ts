@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, On
 import { RoleEntity } from "./role.entities";
 import { OrderEntity } from "./orders.entities";
 import { CartEntity } from "./cart.enity";
+import { FeedbackEntity } from "./feedback.entity";
 
 @Entity('users')
 export class UserEntity {
@@ -32,6 +33,9 @@ export class UserEntity {
   @OneToMany(() => OrderEntity, (order) => order.user)
   orders: OrderEntity[];
 
-  @OneToOne(() => CartEntity, (cart) => cart.cart_id)
+  @OneToMany(() => FeedbackEntity, (feedback) => feedback.user)
+  feedbacks: FeedbackEntity[];
+
+  @OneToOne(() => CartEntity, (cart) => cart.user)
   cart: CartEntity;
 }

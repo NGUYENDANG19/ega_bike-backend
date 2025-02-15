@@ -3,7 +3,7 @@ import { DiscountService } from './discount.service';
 import { CreateDiscountDto } from './dto/create-discount.dto';
 import { UpdateDiscountDto } from './dto/update-discount.dto';
 
-@Controller('discount')
+@Controller('discounts')
 export class DiscountController {
   constructor(private readonly discountService: DiscountService) {}
 

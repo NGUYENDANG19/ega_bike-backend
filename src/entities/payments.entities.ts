@@ -34,7 +34,7 @@ export class PaymentEntity {
   })
   status: PaymentStatus;
 
-  @OneToOne(() => OrderEntity, (order) => order.order_id, { eager: true })
+  @OneToOne(() => OrderEntity, (order) => order.payment, { eager: true })
   @JoinColumn() // chỉ định khóa ngoại nằm ở bảng này
   order: OrderEntity;
 }

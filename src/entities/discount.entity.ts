@@ -32,6 +32,6 @@ export class DiscountEntity extends BaseEntity {
     @Column({ type: 'tinyint', default: 1 })
     is_active: boolean;
 
-    @OneToMany(() => OrderEntity, (order) => order.order_id)
-    order: OrderEntity;
+    @OneToMany(() => OrderEntity, (order) => order.discount)
+    orders: OrderEntity[];
 }

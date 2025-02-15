@@ -6,4 +6,7 @@ export class CreateCategoryDto {
 
     @IsOptional()
     description: string
+
+    @IsOptional()
+    image: string
 }
