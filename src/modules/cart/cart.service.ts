@@ -32,6 +32,13 @@ export class CartService {
     return this.cartRepository.findOne({ where: { cart_id: id } })
   }
 
+  findUserCart(user_id: number) {
+    return this.cartRepository.findOne({
+      where: { user: { user_id } },
+      relations: ['cartItems']
+    })
+  }
+
   async update(id: number, updateCartDto: UpdateCartDto) {
     const user = await this.userRepository.findOne({ where: { user_id: updateCartDto.user_id } })
     if (!user) throw new Error('User not found')

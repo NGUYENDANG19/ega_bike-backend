@@ -16,8 +16,15 @@ export class DiscountService {
     this.discountRepository.create(createDiscountDto)
   }
 
-  findAll() {
-    return this.discountRepository.find()
+  async findAll(limit: number | null) {
+    const discounts = await this.discountRepository
+      .createQueryBuilder('discount')
+      .leftJoinAndSelect('discount.discount_conditions', 'discount_conditions') // Gộp luôn select
+      .getMany();
+
+    discounts.sort((a, b) => new Date(b.end_date).getTime() - new Date(a.end_date).getTime())
+
+    return limit ? discounts.slice(0, limit) : discounts
   }
 
   findOne(id: number) {

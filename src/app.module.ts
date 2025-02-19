@@ -24,6 +24,8 @@ import { DiscountModule } from './modules/discount/discount.module';
 import { FeedbackModule } from './modules/feedback/feedback.module';
 import { AuthModule } from './auth/auth.module';
 import { UploadModule } from './upload/upload.module';
+import { DiscountConditionModule } from './modules/discount-condition/discount-condition.module';
+import { DiscountConditionEntity } from './entities/discount-condition';
 
 @Module({
   imports: [
@@ -35,6 +37,7 @@ import { UploadModule } from './upload/upload.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
+      charset: 'utf8mb4',
       entities: [
         BrandEntity,
         CartItemEntity,
@@ -49,6 +52,7 @@ import { UploadModule } from './upload/upload.module';
         ProductEntity,
         RoleEntity,
         UserEntity,
+        DiscountConditionEntity,
       ],
       synchronize: true,
     }),
@@ -62,6 +66,7 @@ import { UploadModule } from './upload/upload.module';
     RoleModule,
     AuthModule,
     UploadModule,
+    DiscountConditionModule,
   ],
 })
 export class AppModule {

@@ -1,6 +1,12 @@
 export enum DiscountType {
-  PERCENTAGE = "percentage",
-  FIXED = "fixed",
+  PERCENT = "percent",
+  AMOUNT = "amount",
+}
+
+export enum DiscountConditionType {
+  USER_ID = "user_id",
+  PRODUCT_ID = "product_id",
+  CATEGORY_ID = "category_id",
 }
 
 export enum PaymentMethod {
