@@ -26,6 +26,8 @@ import { AuthModule } from './auth/auth.module';
 import { UploadModule } from './upload/upload.module';
 import { DiscountConditionModule } from './modules/discount-condition/discount-condition.module';
 import { DiscountConditionEntity } from './entities/discount-condition';
+import { ProductImagesModule } from './modules/product_images/product-images.module';
+import { ProductModule } from './modules/products/product.module';
 
 @Module({
   imports: [
@@ -67,6 +69,8 @@ import { DiscountConditionEntity } from './entities/discount-condition';
     AuthModule,
     UploadModule,
     DiscountConditionModule,
+    ProductImagesModule,
+    ProductModule,
   ],
 })
 export class AppModule {

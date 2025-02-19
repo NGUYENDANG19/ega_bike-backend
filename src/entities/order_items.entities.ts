@@ -7,7 +7,7 @@ export class OrderItemEntity {
     @PrimaryGeneratedColumn()
     order_item_id: number;
 
-    @Column({ type: 'int' }) s
+    @Column({ type: 'int' }) 
     quantity: number;
 
     @Column({ type: 'decimal', precision: 10, scale: 2 })

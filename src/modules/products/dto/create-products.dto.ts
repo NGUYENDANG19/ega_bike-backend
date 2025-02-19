@@ -1,14 +1,29 @@
-import { IsEmail, IsNotEmpty, IsOptional, MaxLength, MinLength } from "class-validator";
+import { IsString, IsOptional, IsNumber } from 'class-validator';
 
-export class CreateAuthDto {
-    @IsNotEmpty({ message: 'username không được để trống' })
-    username: string;
+export class CreateProductsDto {
+  @IsString()
+  name: string;
 
-    @IsNotEmpty({ message: 'email không được để trống' })
-    @IsEmail({}, { message: 'email không hợp lệ' })
-    email: string;
+  @IsOptional()
+  @IsString()
+  description?: string;
 
-    @IsNotEmpty({ message: 'password không được để trống' })
-    @MinLength(6, { message: 'Mật khẩu chứa ít nhất 6 ký tự' })
-    password: string;
+  @IsNumber()
+  price: number;
+
+  @IsOptional()
+  @IsNumber()
+  discount_price?: number;
+
+  @IsNumber()
+  rating: number;
+
+  @IsString()
+  sku: string;
+
+  @IsNumber()
+  categoryId: number;
+
+  @IsNumber()
+  brandId: number;
 }
