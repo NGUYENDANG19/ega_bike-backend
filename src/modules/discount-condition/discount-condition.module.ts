@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { DiscountConditionService } from './discount-condition.service';
 import { DiscountConditionController } from './discount-condition.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DiscountConditionEntity } from 'src/entities/discount-condition';
+import { DiscountConditionEntity } from 'src/entities/discount-condition.entity';
 import { DiscountEntity } from 'src/entities/discount.entity';
 
 @Module({

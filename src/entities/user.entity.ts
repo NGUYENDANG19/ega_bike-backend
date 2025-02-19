@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, OneToMany, OneToOne } from "typeorm";
-import { RoleEntity } from "./role.entities";
-import { OrderEntity } from "./orders.entities";
+import { RoleEntity } from "./role.entity";
+import { OrderEntity } from "./order.entity";
 import { CartEntity } from "./cart.enity";
 import { FeedbackEntity } from "./feedback.entity";
 

@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { OrderEntity } from 'src/entities/orders.entities';
-import { PaymentEntity } from 'src/entities/payments.entities';
+import { OrderEntity } from 'src/entities/order.entity';
+import { PaymentEntity } from 'src/entities/payment.entity';
 import { Repository } from 'typeorm';
 import { CreatePaymentDto } from './dto/create-payments.dto';
 import { UpdatePaymentDto } from './dto/update-payments.dto';
@@ -14,7 +14,7 @@ export class PaymentsService {
 
     @InjectRepository(OrderEntity)
     private readonly orderRepository: Repository<OrderEntity>,
-  ) {}
+  ) { }
 
   async create(createPaymentDto: CreatePaymentDto) {
     const order = await this.orderRepository.findOne({ where: { order_id: createPaymentDto.orderId } });

@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { DiscountType } from '../common/enums/types';
-import { OrderEntity } from "./orders.entities";
-import { DiscountConditionEntity } from "./discount-condition";
+import { OrderEntity } from "./order.entity";
+import { DiscountConditionEntity } from "./discount-condition.entity";
 
 @Entity('discounts')
 export class DiscountEntity extends BaseEntity {

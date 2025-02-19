@@ -1,10 +1,10 @@
 import { OrderStatus } from "src/common/enums/types";
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, OneToMany, OneToOne } from "typeorm";
-import { UserEntity } from "./user.entities";
+import { UserEntity } from "./user.entity";
 import { FeedbackEntity } from "./feedback.entity";
-import { PaymentEntity } from "./payments.entities";
+import { PaymentEntity } from "./payment.entity";
 import { DiscountEntity } from "./discount.entity";
-import { OrderItemEntity } from "./order_items.entities";
+import { OrderItemEntity } from "./order_items.entity";
 
 @Entity("orders")
 export class OrderEntity {

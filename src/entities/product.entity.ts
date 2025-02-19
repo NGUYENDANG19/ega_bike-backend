@@ -6,12 +6,12 @@ import {
   CreateDateColumn,
   OneToMany,
 } from "typeorm";
-import { ProductImagesEntity } from "./product_images.entities";
+import { ProductImagesEntity } from "./product_image.entity";
 import { CartItemEntity } from "./cart-item.entity";
 import { CategoryEntity } from "./category.entity";
 import { BrandEntity } from "./brand.entity";
 import { FeedbackEntity } from "./feedback.entity";
-import { OrderItemEntity } from "./order_items.entities";
+import { OrderItemEntity } from "./order_items.entity";
 
 @Entity("products")
 export class ProductEntity {

@@ -4,7 +4,7 @@ import { UpdateCartDto } from './dto/update-cart.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CartEntity } from 'src/entities/cart.enity';
 import { Repository } from 'typeorm';
-import { UserEntity } from 'src/entities/user.entities';
+import { UserEntity } from 'src/entities/user.entity';
 
 @Injectable()
 export class CartService {

@@ -4,9 +4,9 @@ import { UpdateFeedbackDto } from './dto/update-feedback.dto';
 import { FeedbackEntity } from 'src/entities/feedback.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from 'src/entities/user.entities';
-import { ProductEntity } from 'src/entities/products.entities';
-import { OrderEntity } from 'src/entities/orders.entities';
+import { UserEntity } from 'src/entities/user.entity';
+import { ProductEntity } from 'src/entities/product.entity';
+import { OrderEntity } from 'src/entities/order.entity';
 
 @Injectable()
 export class FeedbackService {

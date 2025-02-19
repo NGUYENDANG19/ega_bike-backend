@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { UserEntity } from "./user.entities";
-import { ProductEntity } from "./products.entities";
-import { OrderEntity } from "./orders.entities";
+import { UserEntity } from "./user.entity";
+import { ProductEntity } from "./product.entity";
+import { OrderEntity } from "./order.entity";
 
 @Entity('feedbacks')
 export class FeedbackEntity extends BaseEntity {

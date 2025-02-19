@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
-import { RoleEntity } from 'src/entities/role.entities';
+import { RoleEntity } from 'src/entities/role.entity';
 import { StatusCodes } from 'src/common/constants/status-codes';
 
 
@@ -13,7 +13,7 @@ export class RoleService {
   constructor(
     @InjectRepository(RoleEntity)
     private readonly roleRepository: Repository<RoleEntity>,
-  ) {}
+  ) { }
 
   // 📌 Lấy danh sách Role
   async findAll(): Promise<{ data: RoleEntity[]; message: string }> {
@@ -50,9 +50,9 @@ export class RoleService {
     if (result.affected === 0) {
       throw new NotFoundException(`Role với ID ${id} không tồn tại`);
     }
-    return { 
+    return {
       status: StatusCodes.SUCCESS,
-      message: `Role với ID ${id} đã được xóa thành công` ,
-      };
+      message: `Role với ID ${id} đã được xóa thành công`,
+    };
   }
 }

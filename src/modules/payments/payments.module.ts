@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { OrderEntity } from 'src/entities/orders.entities';
-import { PaymentEntity } from 'src/entities/payments.entities';
+import { OrderEntity } from 'src/entities/order.entity';
+import { PaymentEntity } from 'src/entities/payment.entity';
 import { PaymentsController } from './payments.controller';
 import { PaymentsService } from './payments.service';
 
@@ -11,4 +11,4 @@ import { PaymentsService } from './payments.service';
   providers: [PaymentsService],
   exports: [PaymentsService],
 })
-export class PaymentsModule {}
+export class PaymentsModule { }

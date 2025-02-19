@@ -2,13 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { CreateDiscountConditionDto } from './dto/create-discount-condition.dto';
 import { UpdateDiscountConditionDto } from './dto/update-discount-condition.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DiscountConditionEntity } from 'src/entities/discount-condition';
+import { DiscountConditionEntity } from 'src/entities/discount-condition.entity';
 import { Repository } from 'typeorm';
 import { DiscountEntity } from 'src/entities/discount.entity';
-import { UserEntity } from 'src/entities/user.entities';
-import { CategoryEntity } from 'src/entities/category.entity';
-import { ProductEntity } from 'src/entities/products.entities';
-import { DiscountConditionType } from 'src/common/enums/types';
 
 @Injectable()
 export class DiscountConditionService {

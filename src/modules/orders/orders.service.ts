@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { OrderEntity } from "src/entities/orders.entities";
+import { OrderEntity } from "src/entities/order.entity";
 import { Repository } from "typeorm";
 import { CreateOrderDto } from "./dto/create-orders.dto";
 import { UpdateOrderDto } from "./dto/update-orders.dto";
@@ -11,7 +11,7 @@ export class OrdersService {
   constructor(
     @InjectRepository(OrderEntity)
     private readonly orderRepository: Repository<OrderEntity>
-  ) {}
+  ) { }
 
   // Lấy danh sách tất cả đơn hàng
   async findAll(): Promise<OrderEntity[]> {
