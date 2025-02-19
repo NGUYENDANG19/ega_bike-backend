@@ -1,14 +1,14 @@
-import { IsEmail, IsNotEmpty, IsOptional, MaxLength, MinLength } from "class-validator";
+import { IsNumber, IsEnum, IsOptional } from "class-validator";
+import { OrderStatus } from "src/common/enums/types";
 
-export class CreateAuthDto {
-    @IsNotEmpty({ message: 'username không được để trống' })
-    username: string;
+export class CreateOrderDto {
+  @IsNumber()
+  userId: number;
 
-    @IsNotEmpty({ message: 'email không được để trống' })
-    @IsEmail({}, { message: 'email không hợp lệ' })
-    email: string;
+  @IsNumber()
+  total_amount: number;
 
-    @IsNotEmpty({ message: 'password không được để trống' })
-    @MinLength(6, { message: 'Mật khẩu chứa ít nhất 6 ký tự' })
-    password: string;
+  @IsEnum(OrderStatus)
+  @IsOptional()
+  status?: OrderStatus;
 }

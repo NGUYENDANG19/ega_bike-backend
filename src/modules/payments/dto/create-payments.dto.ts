@@ -1,14 +1,16 @@
-import { IsEmail, IsNotEmpty, IsOptional, MaxLength, MinLength } from "class-validator";
+import { IsNumber, IsEnum } from 'class-validator';
+import { PaymentMethod, PaymentStatus } from 'src/common/enums/types';
 
-export class CreateAuthDto {
-    @IsNotEmpty({ message: 'username không được để trống' })
-    username: string;
+export class CreatePaymentDto {
+  @IsNumber()
+  amount: number;
 
-    @IsNotEmpty({ message: 'email không được để trống' })
-    @IsEmail({}, { message: 'email không hợp lệ' })
-    email: string;
+  @IsEnum(PaymentMethod)
+  payment_method: PaymentMethod;
 
-    @IsNotEmpty({ message: 'password không được để trống' })
-    @MinLength(6, { message: 'Mật khẩu chứa ít nhất 6 ký tự' })
-    password: string;
+  @IsEnum(PaymentStatus)
+  status: PaymentStatus;
+
+  @IsNumber()
+  orderId: number;
 }

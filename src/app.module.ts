@@ -24,6 +24,8 @@ import { DiscountModule } from './modules/discount/discount.module';
 import { FeedbackModule } from './modules/feedback/feedback.module';
 import { AuthModule } from './auth/auth.module';
 import { UploadModule } from './upload/upload.module';
+import { ProductImagesModule } from './modules/product_images/product-images.module';
+import { ProductModule } from './modules/products/product.module';
 
 @Module({
   imports: [
@@ -62,6 +64,8 @@ import { UploadModule } from './upload/upload.module';
     RoleModule,
     AuthModule,
     UploadModule,
+    ProductImagesModule,
+    ProductModule,
   ],
 })
 export class AppModule {
