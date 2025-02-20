@@ -34,3 +34,8 @@ export enum UPLOAD_TYPES {
   PRODUCT_IMAGE = 'product_images',
   BRAND_LOGO = 'brand_logos',
 } 
+
+export enum VariantName {
+  COLOR = 'color',
+  SIZE = 'size',
+}

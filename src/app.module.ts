@@ -28,6 +28,8 @@ import { DiscountConditionModule } from './modules/discount-condition/discount-c
 import { DiscountConditionEntity } from './entities/discount-condition.entity';
 import { ProductImagesModule } from './modules/product_images/product-images.module';
 import { ProductModule } from './modules/products/product.module';
+import { ProductVariantEntity } from './entities/product-variant.entity';
+import { ProductVariantModule } from './modules/product-variant/product-variant.module';
 
 @Module({
   imports: [
@@ -52,6 +54,7 @@ import { ProductModule } from './modules/products/product.module';
         PaymentEntity,
         ProductImagesEntity,
         ProductEntity,
+        ProductVariantEntity,
         RoleEntity,
         UserEntity,
         DiscountConditionEntity,
@@ -71,6 +74,7 @@ import { ProductModule } from './modules/products/product.module';
     DiscountConditionModule,
     ProductImagesModule,
     ProductModule,
+    ProductVariantModule,
   ],
 })
 export class AppModule {

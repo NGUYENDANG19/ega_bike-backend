@@ -12,6 +12,7 @@ import { CategoryEntity } from "./category.entity";
 import { BrandEntity } from "./brand.entity";
 import { FeedbackEntity } from "./feedback.entity";
 import { OrderItemEntity } from "./order_items.entity";
+import { ProductVariantEntity } from "./product-variant.entity";
 
 @Entity("products")
 export class ProductEntity {
@@ -33,6 +34,9 @@ export class ProductEntity {
   @Column()
   rating: number;
 
+  @Column({ type: "int" })
+  stock_quantity: number;
+
   @CreateDateColumn({ type: "timestamp" })
   created_at: Date;
 
@@ -50,6 +54,9 @@ export class ProductEntity {
 
   @OneToMany(() => FeedbackEntity, (feedback) => feedback.product)
   feedbacks: FeedbackEntity[];
+
+  @OneToMany(() => ProductVariantEntity, (productVariant) => productVariant.product)
+  product_variants: ProductVariantEntity[];
 
   @ManyToOne(() => CategoryEntity, (category) => category.products, { eager: true })
   category: CategoryEntity;
